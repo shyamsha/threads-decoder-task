@@ -17,20 +17,16 @@ app.use("/users", userController);
 app.use("/threads", threadController);
 
 app.get("/", (req, res) => {
-	res.send("Welcome to your Threads");
+  res.send("Welcome to your Threads");
 });
 //default route
-app.use(function(req, res) {
-	res
-		.status(404)
-		.send(
-			"The resource you are looking for doesn’t exist." + "\n 404 Not Found "
-		);
+app.use(function (req, res) {
+  res.status(404);
 });
 app.get("*", (req, res) => {
-	res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 //listening server
 app.listen(port, () => {
-	console.log("listining from", port);
+  console.log("listening from", port);
 });
