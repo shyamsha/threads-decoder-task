@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { authenticationByUser } = require("../middlewares/authenticate");
-const { autherizationByUser } = require("../middlewares/autherization");
+const { authenticationByUser } = require("../middleware/authenticate");
+const { authorizationByUser } = require("../middleware/authorization");
 const { Thread } = require("../models/threads");
 
 router.get("/", authenticationByUser, (req, res) => {

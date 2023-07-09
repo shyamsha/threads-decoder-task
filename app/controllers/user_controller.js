@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { authenticationByUser } = require("../middlewares/authenticate");
-const { autherizationByUser } = require("../middlewares/autherization");
+const { authenticationByUser } = require("../middleware/authenticate");
+const { authorizationByUser } = require("../middleware/authorization");
 const { User } = require("../models/user");
 
 router.post("/register", (req, res) => {
@@ -20,7 +20,7 @@ router.post("/login", (req, res) => {
   User.findByCredentials(body.email, body.password)
     .then((user) => {
       return user.generateByToken();
-      //res.send(" successfully logedin ");
+      //res.send(" successfully login ");
     })
     .then((token) => {
       //res.header("x-auth", token).send();

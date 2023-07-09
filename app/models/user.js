@@ -117,7 +117,7 @@ userSchema.statics.findByToken = function (token) {
 
   return User.findOne({
     _id: tokenData.user_id,
-    "tokens.token": token, //chekin form db delete or present
+    "tokens.token": token, //check in form db delete or present
   })
     .then((user) => {
       return Promise.resolve(user);
